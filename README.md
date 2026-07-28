@@ -1,16 +1,26 @@
-# Task 3: Writing Basic SELECT Queries
+# Food Ordering System - SQL Queries
 
 ## 📌 Project Overview
 
-This project demonstrates how to retrieve data from a **Food Ordering System** database using SQL. It covers basic SQL `SELECT` statements, filtering data with conditions, sorting records, and limiting query results.
+This project demonstrates fundamental SQL query operations using a **Food Ordering System** database. It includes retrieving data with `SELECT` statements and summarizing data using aggregate functions.
 
-## 🎯 Objective
+The project helps learners understand how to filter, sort, group, and analyse data stored in a relational database.
 
+## 🎯 Objectives
+
+### Task 3 – Writing Basic SELECT Queries
 - Retrieve data from one or more tables.
-- Use `SELECT` statements to display records.
-- Apply filtering using `WHERE`, `AND`, `OR`, `LIKE`, and `BETWEEN`.
-- Sort data using `ORDER BY`.
+- Display all columns or selected columns.
+- Filter records using `WHERE`.
+- Use `AND`, `OR`, `LIKE`, and `BETWEEN`.
+- Sort records using `ORDER BY`.
 - Limit the number of returned rows using `LIMIT`.
+
+### Task 4 – Aggregate Functions and Grouping
+- Summarize data using aggregate functions.
+- Calculate totals, averages, maximum, minimum, and counts.
+- Group records using `GROUP BY`.
+- Filter grouped results using `HAVING`.
 
 ## 🛠️ Tools Used
 
@@ -22,9 +32,10 @@ This project demonstrates how to retrieve data from a **Food Ordering System** d
 ## 📂 Project Structure
 
 ```
-Task3-Writing-Basic-SELECT-Queries/
+Food-Ordering-System/
 │
 ├── Task3.sql
+├── Task4.sql
 ├── README.md
 └── FoodDB.sql (Optional)
 ```
@@ -39,31 +50,14 @@ Task3-Writing-Basic-SELECT-Queries/
 - FoodID
 - FoodName
 - Price
-- CategoryID
 - Stock
+- CategoryID
 
-## 📚 SQL Operations Performed
+## 📚 SQL Concepts Covered
 
-- Display all records using `SELECT *`
-- Display specific columns
-- Filter records using `WHERE`
-- Use `AND` and `OR` conditions
-- Search records using `LIKE`
-- Filter values using `BETWEEN`
-- Sort records with `ORDER BY` (Ascending & Descending)
-- Display limited records using `LIMIT`
-
-## ▶️ How to Run
-
-1. Open MySQL Workbench or DB Browser for SQLite.
-2. Create or open the `FoodDB` database.
-3. Open the `Task3.sql` file.
-4. Execute the SQL script.
-5. Run the SELECT queries to view the output.
-
-## 📖 SQL Concepts Covered
-
-- SELECT
+### Task 3
+- SELECT *
+- SELECT specific columns
 - WHERE
 - AND
 - OR
@@ -72,22 +66,82 @@ Task3-Writing-Basic-SELECT-Queries/
 - ORDER BY
 - LIMIT
 
+### Task 4
+- COUNT()
+- SUM()
+- AVG()
+- MAX()
+- MIN()
+- GROUP BY
+- HAVING
+
+## ▶️ How to Run
+
+1. Open MySQL Workbench or DB Browser for SQLite.
+2. Create or open the `FoodDB` database.
+3. Run the table creation and sample data scripts.
+4. Execute `Task3.sql` to practice basic SELECT queries.
+5. Execute `Task4.sql` to practice aggregate functions and grouping.
+
+## 📖 Sample Queries
+
+### Retrieve all food items
+
+```sql
+SELECT * FROM FoodItems;
+```
+
+### Display food items priced above 100
+
+```sql
+SELECT * FROM FoodItems
+WHERE Price > 100;
+```
+
+### Count total food items
+
+```sql
+SELECT COUNT(*) AS TotalFoodItems
+FROM FoodItems;
+```
+
+### Find the average food price
+
+```sql
+SELECT AVG(Price) AS AveragePrice
+FROM FoodItems;
+```
+
+### Display total stock by category
+
+```sql
+SELECT CategoryID, SUM(Stock) AS TotalStock
+FROM FoodItems
+GROUP BY CategoryID;
+```
+
 ## 🎓 Learning Outcomes
 
-- Retrieve data from database tables.
+After completing this project, you will be able to:
+
+- Retrieve data using SQL SELECT statements.
 - Filter records using different conditions.
-- Sort data in ascending and descending order.
-- Limit query results.
-- Gain a clear understanding of SQL SELECT queries.
+- Sort and limit query results.
+- Use aggregate functions to summarize data.
+- Group records using GROUP BY.
+- Filter grouped results using HAVING.
+- Write efficient SQL queries for data analysis.
 
 ## 👩‍💻 Author
 
-**Mohana Priya**
+**MohanaPriya**
 
 AI & Data Science Student
 
 GitHub: https://github.com/your-username
 
----
+## ⭐ Acknowledgement
 
-⭐ Thank you for visiting this project! If you found it helpful, consider giving this repository a ⭐ on GitHub.
+This project was created as part of an SQL learning program to practice database querying and data analysis using MySQL Workbench and DB Browser for SQLite.
+
+If you found this project useful, consider giving it a ⭐ on GitHub.
