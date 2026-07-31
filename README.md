@@ -2,9 +2,7 @@
 
 ## 📌 Project Overview
 
-This project demonstrates essential SQL concepts using a **Food Ordering System** database. It covers retrieving data, summarizing information with aggregate functions, grouping records, and combining data from multiple tables using SQL JOINs.
-
-The project is designed to strengthen fundamental SQL skills required for database management and data analysis.
+This project demonstrates fundamental and advanced SQL concepts using a **Food Ordering System** database. It includes data retrieval, filtering, sorting, aggregation, grouping, table joins, and subqueries. The project is designed to build a strong foundation in SQL and improve database querying skills.
 
 ---
 
@@ -12,21 +10,24 @@ The project is designed to strengthen fundamental SQL skills required for databa
 
 ### Task 3 – Writing Basic SELECT Queries
 - Retrieve data using `SELECT`.
-- Filter records with `WHERE`.
-- Use `AND`, `OR`, `LIKE`, and `BETWEEN`.
-- Sort results using `ORDER BY`.
-- Limit the number of records using `LIMIT`.
+- Filter records using `WHERE`.
+- Apply `AND`, `OR`, `LIKE`, and `BETWEEN`.
+- Sort data using `ORDER BY`.
+- Limit query results using `LIMIT`.
 
 ### Task 4 – Aggregate Functions and Grouping
-- Summarize data using aggregate functions.
-- Calculate totals, averages, maximum, minimum, and counts.
+- Use aggregate functions (`COUNT`, `SUM`, `AVG`, `MAX`, `MIN`).
 - Group records using `GROUP BY`.
 - Filter grouped data using `HAVING`.
 
 ### Task 5 – SQL Joins
 - Combine data from multiple related tables.
-- Retrieve matching and non-matching records.
-- Practice using `INNER JOIN`, `LEFT JOIN`, `RIGHT JOIN`, and `FULL OUTER JOIN` (using `UNION` in MySQL).
+- Use `INNER JOIN`, `LEFT JOIN`, `RIGHT JOIN`, and `FULL OUTER JOIN` (using `UNION` in MySQL).
+
+### Task 6 – Subqueries and Nested Queries
+- Use scalar and correlated subqueries.
+- Apply subqueries in `SELECT`, `WHERE`, and `FROM`.
+- Use subqueries with `IN`, `EXISTS`, and `=` operators.
 
 ---
 
@@ -47,6 +48,7 @@ Food-Ordering-System/
 ├── Task3.sql
 ├── Task4.sql
 ├── Task5.sql
+├── Task6.sql
 ├── README.md
 └── FoodDB.sql (Optional)
 ```
@@ -93,7 +95,7 @@ Food-Ordering-System/
 - ORDER BY
 - LIMIT
 
-### Task 4 – Aggregate Functions
+### Task 4 – Aggregate Functions and Grouping
 - COUNT()
 - SUM()
 - AVG()
@@ -110,29 +112,41 @@ Food-Ordering-System/
 - Primary Key
 - Foreign Key
 
+### Task 6 – Subqueries and Nested Queries
+- Scalar Subqueries
+- Correlated Subqueries
+- Subqueries in SELECT
+- Subqueries in WHERE
+- Subqueries in FROM
+- IN
+- EXISTS
+- =
+- Nested Queries
+
 ---
 
 ## ▶️ How to Run
 
 1. Open **MySQL Workbench** or **DB Browser for SQLite**.
-2. Create the **FoodDB** database.
-3. Execute the SQL scripts in the following order:
+2. Create the `FoodDB` database.
+3. Run the SQL scripts in the following order:
    - `Task3.sql`
    - `Task4.sql`
    - `Task5.sql`
-4. Run the queries to view and analyze the results.
+   - `Task6.sql`
+4. Execute the queries and review the output.
 
 ---
 
 ## 📖 Sample SQL Queries
 
-### Retrieve all food items
+### Display all food items
 
 ```sql
 SELECT * FROM FoodItems;
 ```
 
-### Display food items priced above ₹100
+### Find food items with a price greater than ₹100
 
 ```sql
 SELECT * FROM FoodItems
@@ -146,7 +160,7 @@ SELECT COUNT(*) AS TotalFoodItems
 FROM FoodItems;
 ```
 
-### Find the average food price
+### Calculate average food price
 
 ```sql
 SELECT AVG(Price) AS AveragePrice
@@ -172,20 +186,32 @@ INNER JOIN Orders
 ON Customers.CustomerID = Orders.CustomerID;
 ```
 
+### Display food items priced above the average price
+
+```sql
+SELECT FoodName, Price
+FROM FoodItems
+WHERE Price >
+(
+    SELECT AVG(Price)
+    FROM FoodItems
+);
+```
+
 ---
 
 ## 🎓 Learning Outcomes
 
 After completing this project, you will be able to:
 
-- Retrieve data using SQL SELECT statements.
-- Filter records using different conditions.
+- Retrieve and filter data using SQL `SELECT` statements.
 - Sort and limit query results.
 - Summarize data using aggregate functions.
-- Group records using GROUP BY and HAVING.
+- Group records with `GROUP BY` and `HAVING`.
 - Combine data from multiple tables using SQL JOINs.
-- Understand relationships between tables using Primary Keys and Foreign Keys.
-- Write efficient SQL queries for data analysis.
+- Write scalar and correlated subqueries.
+- Apply nested queries using `IN`, `EXISTS`, and `=` operators.
+- Develop efficient SQL queries for database analysis.
 
 ---
 
@@ -201,6 +227,6 @@ GitHub: https://github.com/your-username
 
 ## ⭐ Acknowledgement
 
-This project was developed as part of an SQL learning program to practice data retrieval, aggregation, grouping, and table joins using MySQL Workbench and DB Browser for SQLite.
+This project was developed as part of an SQL learning program to practice SQL querying techniques, including data retrieval, aggregation, grouping, joins, and subqueries using **MySQL Workbench** and **DB Browser for SQLite**.
 
 If you found this project helpful, consider giving it a ⭐ on GitHub.
